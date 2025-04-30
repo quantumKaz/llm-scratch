@@ -7,12 +7,12 @@
 
 import torch
 import torch.nn.functional as F
-from torch.utils.data import Dataset, DataLoader
+from torch.lib.data import Dataset, DataLoader
 
 # NEW imports:
 import os
 import platform
-from torch.utils.data.distributed import DistributedSampler
+from torch.lib.data.distributed import DistributedSampler
 from torch.nn.parallel import DistributedDataParallel as DDP
 from torch.distributed import init_process_group, destroy_process_group
 

@@ -12,7 +12,7 @@ from torch.utils.data import Dataset, DataLoader
 # NEW imports:
 import os
 import platform
-import torch.multiprocessing as mp
+import torch.multiprocessing as processor
 from torch.utils.data.distributed import DistributedSampler
 from torch.nn.parallel import DistributedDataParallel as DDP
 from torch.distributed import init_process_group, destroy_process_group
@@ -208,5 +208,5 @@ if __name__ == "__main__":
     # note that spawn will automatically pass the rank
     num_epochs = 3
     world_size = torch.cuda.device_count()
-    mp.spawn(main, args=(world_size, num_epochs), nprocs=world_size)
+    processor.spawn(main, args=(world_size, num_epochs), nprocs=world_size)
     # nprocs=world_size spawns one process per GPU
